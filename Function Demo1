@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+
+double functionM(void);
+int functionN(int n, double x);
+double functionO(double, int, double, int);
+double functionP(int a, int n, int b, int c);
+ 
+int main(void) {
+  	int a, b, c, d, e;
+  	double r, s, t, u, v;
+  //function calling (a-k)
+  functionM();    // a) ไม่มีปัญหา
+	a = functionM();    // b) ไม่มีปัญหา
+	b = functionN(a, b);    // c) อาจมีปัญหา เพราะค่า b เป็น int แต่ function รับเป็นค่า double
+	r = functionO(r,a,s,b);    // d) ไม่มีปัญหา
+	s = functionP(a,b,c,d,e);    // e) มีปัญหา เพราะใส่ argument เกิน
+	u = functionM();    // f) ไม่มีปัญหา
+	c = d + functionN(r,s);    // g) อาจมีปัญหา เพราะค่า r เป็น double แต่ function รับเป็นค่า int
+	t = s * functionO(r, a, r, a);    // h) ไม่มีปัญหา
+	a = v + functionP(r, s, t, t);    // i) มี type mismatch
+	functionP(functionN(a, a), s, t, t+r);    // j) มี type mismatch ที่ functionN
+	v = functionP(functionN(a, a), s, t, t+r);    // k) มี type mismatch ที่ functionN
+
+}
